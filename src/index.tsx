@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GateWayProvider from "./provider/GateWay.Provider";
+import ThemeProviderStyled from "./provider/Theme.Provider";
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+      <ThemeProviderStyled >
+          <GateWayProvider>
+                <App />
+          </GateWayProvider>
+      </ThemeProviderStyled>
   </React.StrictMode>
 );
 
