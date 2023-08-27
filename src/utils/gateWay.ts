@@ -1,11 +1,11 @@
 export default [
+    "ipfs2.rmrk.link",
     'ipfs.io',
     'dweb.link',
     'gateway.ipfs.io',
     'ninetailed.ninja',
     'via0.com',
     'ipfs.eternum.io',
-    'hardbin.com',
     'cloudflare-ipfs.com',
     'astyanax.io',
     'cf-ipfs.com',

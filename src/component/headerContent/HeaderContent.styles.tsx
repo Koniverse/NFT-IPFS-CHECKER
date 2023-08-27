@@ -10,9 +10,7 @@ export interface isImage {
 
 export const HeaderContentStyles = styled.div`
     width: 100%;
-    height: 25%;
     display: block;
-    margin-bottom: 20px;
     background:  linear-gradient(to bottom, ${props => props.theme.background_colorHeader}, transparent), linear-gradient(to bottom, #000, transparent);
 `
 export const TitleHeaderContainerStyle =  styled.div`
@@ -47,19 +45,33 @@ export const InformationItem = styled.div<isImage>`
   animation: ${ slideDown } ease-in-out 0.3s;
 `
 export const ImageNFT = styled.img`
-  width: 30%;
-  height : 100%;
+  width: 170px;
+  height: 100%;
   margin-top: 10px;
   object-fit: cover;
   border-radius: 20px;
+  border: double 1px ${props => props.theme.backgroundColorCollection};
+  animation: ${fadeUp} ease-in-out 2s;
+  cursor: pointer;
+  &:hover {
+    border-color: #2b2b5a;
+  }
+`
+export const NotFoundImageNFT = styled.div`
+  width: 170px;
+  height: 100%;
+  margin-top: 10px;;
+  border-radius: 20px;
+  background-color: ${ props => props.theme. backgroundColorCollection}; ;
   border: double 1px ${ props => props.theme. backgroundColorCollection};
   animation: ${ fadeUp } ease-in-out 1s;
 `
 export  const SpanInformation = styled.span`
-        font-family : ${ props => props.theme.fontFamily};
-        color:  ${ props => props.theme.color};
-        font-size : xxx-large;
-        white-space: nowrap;
-        margin: 20px 0 0 0;
-        animation : ${ fadeUp } ease-in-out 0.3s
+    font-family : ${ props => props.theme.fontFamily};
+    color:  ${ props => props.theme.color};
+    font-size : xxx-large;
+    white-space: nowrap;
+    margin: 20px 0 0 0;
+    animation : ${ fadeUp } ease-in-out 0.3s
+  
 `

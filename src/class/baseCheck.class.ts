@@ -39,7 +39,6 @@ export abstract class BaseChecked {
 
     public setAll (isLoading: boolean, onError : boolean, onPass : boolean){
         this.isLoading = isLoading;
-
     }
 
 

@@ -1,6 +1,9 @@
 
 import './App.css';
-import MainPage from "./pages/mainPage.page";
+import MainPage from "./pages/mainPage/mainPage.page";
+import { Outlet } from "react-router";
+import { CheckRareLimitClass } from "./class/checkRareLimit.class";
+import {useEffect} from "react";
 
 
 
@@ -8,11 +11,10 @@ import MainPage from "./pages/mainPage.page";
 
 function App() {
 
-
     return (
-            <div className={'app_content'}>
-                <MainPage />
-            </div>
+        <div className={'app_content'}>
+            <Outlet />
+        </div>
     );
 }
 

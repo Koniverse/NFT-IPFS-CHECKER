@@ -3,23 +3,34 @@ import {
     InformationContent,
     TitleHeader,
     TitleHeaderContainerStyle,
-    InformationItem, ImageNFT, SpanInformation
+    InformationItem,
+    ImageNFT,
+    SpanInformation,
+    NotFoundImageNFT
 } from "./HeaderContent.styles";
-import {useContext, CSSProperties, useState} from "react";
+import {useContext, CSSProperties, useState, useEffect} from "react";
 import { GatewayContext } from "../../context";
 import {BaseChecked} from "../../class/baseCheck.class";
-import {fadeUp} from "../../styles/animation.styles";
-import {keyframes} from "styled-components";
+import {useParams} from "react-router";
+import GateWay from "../../utils/gateWay";
+
 
 const HeaderContentComponent = ()=>{
     const { gateway } = useContext( GatewayContext );
     const [ counter, setCounter ] = useState(0)
-    const [ linkNFTImgae, setLinkNFTImage ] = useState('')
+    const [ linkNFTImage, setLinkNFTImage ] = useState('')
+    const param = useParams();
+
+    useEffect(() => {
+        BaseChecked.gatewayArr = 0;
+        BaseChecked.gatewayArrIndex0 = '';
+        setCounter(0)
+    }, [ param ]);
 
     setTimeout(()=>{
-        setCounter(BaseChecked.gatewayArr)
-        setLinkNFTImage(BaseChecked.gatewayArrIndex0)
-    }, 7000)
+        setCounter(BaseChecked.gatewayArr);
+        setLinkNFTImage(BaseChecked.gatewayArrIndex0);
+    }, 5500)
     return(
         <HeaderContentStyles>
             <TitleHeaderContainerStyle>
@@ -37,16 +48,15 @@ const HeaderContentComponent = ()=>{
                 <InformationItem image={'false'}>
                     Can Connect
                     <SpanInformation>
-                    {counter/2}
+                    { counter }
                     </SpanInformation>
                 </InformationItem>
                 <InformationItem image={'true'}>
                     NFT Image
-                    {linkNFTImgae !== '' && <ImageNFT src={linkNFTImgae} /> }
+                    { linkNFTImage !== '' ? <ImageNFT src={linkNFTImage} /> : <NotFoundImageNFT /> }
                 </InformationItem>
             </InformationContent>
         </HeaderContentStyles>
-
     )
 
 
